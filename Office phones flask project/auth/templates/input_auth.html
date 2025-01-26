@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ввод параметров</title>
+    <link href="{{ url_for('static', filename='sem1.css') }}" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            background-color: #FFD580;
+            padding: 20px;
+            border-radius: 10px;
+            color: #8B4513;
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            color: #8B4513;
+            background-color: #FFA500;
+            border: 2px solid #8B4513;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .button:hover {
+            background-color: #8B4513;
+            color: #FFA500;
+        }
+        h2 {
+            color: #8B4513;
+            font-size: 28px; /* Увеличенный размер шрифта */
+        }
+        .message {
+            color: #8B4513;
+            font-size: 20px; /* Увеличенный размер шрифта */
+        }
+        input[type="text"], input[type="password"], input[type="submit"] {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            border: 2px solid #8B4513;
+            border-radius: 5px;
+            color: #8B4513;
+            background-color: #FFA500;
+        }
+        input[type="submit"] {
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #8B4513;
+            color: #FFA500;
+        }
+    </style>
+</head>
+<body>
+
+<center>
+    <h2>Ввод параметров</h2>
+    <p>
+        <form action="" method="post"> <!-- action - url кому передает управление, что подставить, method - метод запроса -->
+            <label for="login">Логин</label>
+            <input type="text" id="login" name="login">
+            <br><br>
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password">
+<!--            <br><br>-->
+<!--            <label for="is_internal">Сотрудник</label>-->
+<!--            <input type="checkbox" name="is_internal" id="is_internal">-->
+            <br><br>
+            <input type="submit" value="Авторизоваться" class="button"> <!-- value - текст в кнопке -->
+        </form>
+    </p>
+</center>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Input Parameters</title>-->
+<!--    <link href="{{url_for('static', filename = 'sem1.css')}}" rel="stylesheet" type="text/css">-->
+<!--</head>-->
+<!--<body>-->
+<!--<center>-->
+<!--  <h2>Ввод параметров</h2>-->
+<!--  <p>-->
+<!--    <form action="" method="post"> &lt;!&ndash; action - url кому передает управление, что подставить, method - метод запроса &ndash;&gt;-->
+<!--      <label for="login">Логин</label>-->
+<!--      <input type="text" id="login" name="login">-->
+<!--      <br><br>-->
+<!--      <label for="password">Пароль</label>-->
+<!--      <input type="password" id="password" name="password">-->
+<!--      <br><br>-->
+<!--      <input type="submit" value="Отправить" style="background-color: #4C5C41; color: white; padding: 5px 10px; border: none; cursor: pointer;"> &lt;!&ndash; value - текст в кнопке &ndash;&gt;-->
+<!--    </form>-->
+<!--  </p>-->
+<!--    <p>-->
+<!--            <a href="{{ url_for('main_menu') }}">-->
+<!--                <button style="background-color: #4C5C41; color: white; padding: 5px 10px; border: none; cursor: pointer;">-->
+<!--                    Перейти к главному меню-->
+<!--                </button>-->
+<!--            </a>-->
+<!--    </p>-->
+<!--</center>-->
+<!--</body>-->
+<!--</html>-->

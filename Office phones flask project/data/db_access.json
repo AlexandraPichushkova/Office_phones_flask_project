@@ -1,0 +1,6 @@
+{
+  "assistant": ["auth_bp", "query_bp.query_menu", "query_bp.query_index", "query_bp.query_index1", "query_bp.query_index2", "business_bp.tariff_check", "business_bp.business_menu"],
+  "director": ["auth_bp", "report_bp.report_index2", "report_bp.report_menu", "business_bp.tariff_check", "business_bp.business_menu"],
+  "manager": ["auth_bp", "report_bp.report_index", "report_bp.report_menu", "report_bp.report_index2", "business_bp.tariff_check", "business_bp.business_menu"],
+  "admin": ["auth_bp", "business_bp.business_menu", "business_bp.tariff_change", "business_bp.tariff_view"]
+}

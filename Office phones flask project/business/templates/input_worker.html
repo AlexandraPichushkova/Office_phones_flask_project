@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Выбор тарифа</title>
+    <link href="{{ url_for('static', filename='sem1.css') }}" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            background-color: #FFD580;
+            padding: 20px;
+            border-radius: 10px;
+            color: #8B4513;
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            color: #8B4513;
+            background-color: #FFA500;
+            border: 2px solid #8B4513;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .button:hover {
+            background-color: #8B4513;
+            color: #FFA500;
+        }
+        h2 {
+            color: #8B4513;
+            font-size: 28px; /* Увеличенный размер шрифта */
+        }
+        .message {
+            color: #8B4513;
+            font-size: 20px; /* Увеличенный размер шрифта */
+        }
+        .select-container {
+            display: inline-block;
+            position: relative;
+            margin: 10px;
+        }
+        .select-container::after {
+            content: '▼';
+            font-size: 12px;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #8B4513;
+        }
+        select {
+            padding: 10px 30px 10px 10px; /* Увеличенный padding справа */
+            font-size: 16px;
+            border: 2px solid #8B4513;
+            border-radius: 5px;
+            color: #8B4513;
+            background-color: #FFA500;
+            appearance: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            width: 150px; /* Фиксированная ширина */
+        }
+        select:hover {
+            background-color: #8B4513;
+            color: #FFA500;
+        }
+        select:focus {
+            outline: none;
+            border-color: #8B4513;
+        }
+        .tariff-description {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #8B4513;
+        }
+    </style>
+</head>
+<body>
+
+<center>
+    <h2>Выбор тарифа</h2>
+    <form id="reportForm" method="post">
+        <label for="worker">Сотрудник:</label>
+        <select id="worker" name="worker">
+            <option value="1">Potter</option>
+            <option value="2">Malfoy</option>
+            <option value="3">Weasly</option>
+            <option value="4">Granger</option>
+            <option value="5">Lovegood</option>
+            <option value="6">Dumbledore</option>
+            <option value="7">Mcgonaggal</option>
+            <option value="9">Chang</option>
+        </select>
+
+        <label for="tariff_id">Тариф:</label>
+        <select id="tariff_id" name="tariff_id">
+            <option value="1">Тариф 1</option>
+            <option value="2">Тариф 2</option>
+            <option value="3">Тариф 3</option>
+            <option value="4">Тариф 4</option>
+            <option value="5">Тариф 5</option>
+        </select>
+
+    <div class="tariff-description" id="tariffDescription">
+    Выберите тариф для просмотра описания.
+    </div>
+
+    <br><br>
+    <input type="submit" value="Выбрать" class="button">
+
+    </form>
+
+
+    <p>
+        <a href="{{ url_for('business_bp.business_menu') }}" class="button">
+            Вернуться к работе с тарифами
+        </a>
+    </p>
+    <p>
+        <a href="{{ url_for('main_menu') }}" class="button">
+            Перейти к главному меню
+        </a>
+    </p>
+</center>
+
+<script>
+    const tariffs = {
+        1: "Тариф 1: 500 мин, 15 ГБ, 100 смс, 500 руб",
+        2: "Тариф 2: 400 мин, 10 ГБ, 50 смс, 400 руб",
+        3: "Тариф 3: 800 мин, 20 ГБ, 100 смс, 1000 руб",
+        4: "Тариф 4: 800 мин, 25 ГБ, 150 смс, 1350 руб",
+        5: "Тариф 5: 500 мин, 20 ГБ, 120 смс, руб МБ"
+    };
+
+    document.getElementById('tariff_id').addEventListener('change', function() {
+        const selectedTariff = this.value;
+        const descriptionElement = document.getElementById('tariffDescription');
+        if (tariffs[selectedTariff]) {
+            descriptionElement.textContent = tariffs[selectedTariff];
+        } else {
+            descriptionElement.textContent = "Описание тарифа отсутствует.";
+        }
+    });
+</script>
+
+</body>
+</html>
+
+
+
+
+

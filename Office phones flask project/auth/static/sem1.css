@@ -1,0 +1,13 @@
+h2  {font-size  : 20pt;
+    color       : #641400}
+
+tr.tab_title  {font-size  :15pt;
+                font-weight  :bold;
+                color  : #4C5C41}
+
+tr  {font-sixe  : 14pt;
+    color  : black}
+
+body {
+    background-color: #EDE1D1;
+}

@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Работа с отчетами</title>
+    <link href="{{ url_for('static', filename='sem1.css') }}" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            background-color: #FFD580;
+            padding: 20px;
+            border-radius: 10px;
+            color: #8B4513;
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            color: #8B4513;
+            background-color: #FFA500;
+            border: 2px solid #8B4513;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .button:hover {
+            background-color: #8B4513;
+            color: #FFA500;
+        }
+        h2 {
+            color: #8B4513;
+            font-size: 28px; /* Увеличенный размер шрифта */
+        }
+        .message {
+            color: #8B4513;
+            font-size: 20px; /* Увеличенный размер шрифта */
+        }
+        .select-container {
+            display: inline-block;
+            position: relative;
+            margin: 10px;
+        }
+        .select-container::after {
+            content: '▼';
+            font-size: 12px;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #8B4513;
+        }
+        select {
+            padding: 10px 30px 10px 10px; /* Увеличенный padding справа */
+            font-size: 16px;
+            border: 2px solid #8B4513;
+            border-radius: 5px;
+            color: #8B4513;
+            background-color: #FFA500;
+            appearance: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            width: 150px; /* Фиксированная ширина */
+        }
+        select:hover {
+            background-color: #8B4513;
+            color: #FFA500;
+        }
+        select:focus {
+            outline: none;
+            border-color: #8B4513;
+        }
+        .report-description {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #8B4513;
+        }
+    </style>
+</head>
+<body>
+
+<center>
+    <h2>Работа с отчетами</h2>
+    <form id="reportForm" method="post">
+        <label for="rep_id">Отчет:</label>
+        <select id="rep_id" name="rep_id">
+            <option value="exc_report_">Отчет1</option>
+            <option value="unpaid_exc_report">Отчет2</option>
+            <!-- Добавьте другие отчеты по необходимости -->
+        </select>
+
+        <label for="rep_month">Месяц:</label>
+        <select id="rep_month" name="rep_month">
+            <option value="1">Январь</option>
+            <option value="2">Февраль</option>
+            <option value="3">Март</option>
+            <option value="4">Апрель</option>
+            <option value="5">Май</option>
+            <option value="6">Июнь</option>
+            <option value="7">Июль</option>
+            <option value="8">Август</option>
+            <option value="9">Сентябрь</option>
+            <option value="10">Октябрь</option>
+            <option value="11">Ноябрь</option>
+            <option value="12">Декабрь</option>
+        </select>
+
+        <label for="rep_year">Год:</label>
+        <select id="rep_year" name="rep_year">
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <!-- Добавьте другие годы по необходимости -->
+        </select>
+
+        <div class="report-description" id="reportDescription">
+            Выберите отчет для просмотра описания.
+        </div>
+
+        <br><br>
+        <input type="submit" value="Отправить" class="button">
+    </form>
+
+    <p>
+        <a href="{{ url_for('report_bp.report_menu') }}" class="button">
+            Перейти к работе с отчетами
+        </a>
+    </p>
+    <p>
+        <a href="{{ url_for('main_menu') }}" class="button">
+            Перейти к главному меню
+        </a>
+    </p>
+</center>
+
+<script>
+    const reports = {
+        "exc_report_": "Отчет1: Отчет о превышениях лимита",
+        "unpaid_exc_report": "Отчет2: Отчет о платежках по превышениям лимита."
+        // Добавьте другие отчеты и их описания по необходимости
+    };
+
+    document.getElementById('rep_id').addEventListener('change', function() {
+        const selectedReport = this.value;
+        const descriptionElement = document.getElementById('reportDescription');
+        if (reports[selectedReport]) {
+            descriptionElement.textContent = reports[selectedReport];
+        } else {
+            descriptionElement.textContent = "Описание отчета отсутствует.";
+        }
+    });
+</script>
+
+</body>
+</html>

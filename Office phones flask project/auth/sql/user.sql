@@ -1,0 +1,1 @@
+select worker_role, worker_id from worker where worker_login='$user_login' and worker_pass='$user_pass'
